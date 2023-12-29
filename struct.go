@@ -18,7 +18,7 @@ func Package(name string) (pkg, test []byte, err error) {
 	tests.WriteString(`
 
 import (
-	"github.com/speedyhoon/jay/rando"
+	"github.com/speedyhoon/rando"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
