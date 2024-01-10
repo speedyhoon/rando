@@ -21,11 +21,7 @@ func String() (s string) {
 
 // Strings returns a random size string slice with random length strings.
 func Strings() (s []string) {
-	qty := rand.Intn(math.MaxUint8)
-	for i := 0; i < qty; i++ {
-		s = append(s, String())
-	}
-	return
+	return StringsQty(rand.Intn(math.MaxUint8))
 }
 
 // StringsQty returns a string slice with size `qty` with random length strings.
