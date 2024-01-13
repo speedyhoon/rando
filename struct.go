@@ -111,6 +111,26 @@ func TypeRandomFunc(t string) string {
 		return "struct{}{}"
 	case "[]byte":
 		return "rando.Bytes()"
+	case "[]uint":
+		return "rando.Uints()"
+	case "[]uint8":
+		return "rando.Uint8s()"
+	case "[]uint16":
+		return "rando.Uint16s()"
+	case "[]uint32":
+		return "rando.Uint32s()"
+	case "[]uint64":
+		return "rando.Uint64s()"
+	case "[]int":
+		return "rando.Ints()"
+	case "[]int8":
+		return "rando.Int8s()"
+	case "[]int16":
+		return "rando.Int16s()"
+	case "[]int32":
+		return "rando.Int32s()"
+	case "[]int64":
+		return "rando.Int64s()"
 	}
 	return "rando." + strings.ToUpper(string(t[0])) + t[1:] + "()"
 }
