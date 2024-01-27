@@ -1,4 +1,4 @@
-package rando
+package types
 
 import (
 	"mvdan.cc/gofumpt/format"
