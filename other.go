@@ -7,7 +7,7 @@ import (
 
 // Bool returns a random boolean.
 func Bool() bool {
-	return rand.Intn(1) == 1
+	return rand.Intn(2) == 1
 }
 
 // DateTime returns a random year, month, day, hour, minute, second.
