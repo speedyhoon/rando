@@ -68,9 +68,19 @@ func Uint8() uint8 {
 	return uint8(rand.Intn(math.MaxUint8))
 }
 
+// Uint8n returns a random uint8 ranging between 0 to n.
+func Uint8n(n int) uint8 {
+	return uint8(rand.Intn(min(n, math.MaxUint8)))
+}
+
 // Uint16 returns a random uint16.
 func Uint16() uint16 {
 	return uint16(rand.Intn(math.MaxUint16))
+}
+
+// Uint16n returns a random uint16  ranging between 0 to n.
+func Uint16n(n int) uint16 {
+	return uint16(rand.Intn(min(n, math.MaxUint16)))
 }
 
 // Uint32 returns a random uint32.
@@ -78,7 +88,17 @@ func Uint32() uint32 {
 	return rand.Uint32()
 }
 
+// Uint32n returns a random uint32  ranging between 0 to n.
+func Uint32n(n int) uint32 {
+	return uint32(rand.Intn(min(n, math.MaxUint32)))
+}
+
 // Uint64 returns a random uint64.
 func Uint64() uint64 {
 	return rand.Uint64()
+}
+
+// Uint64n returns a random uint64  ranging between 0 to n.
+func Uint64n(n int) uint64 {
+	return uint64(rand.Intn(n))
 }
