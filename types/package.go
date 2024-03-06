@@ -105,8 +105,10 @@ func Struct(name string, fieldsQty uint) (fields, testLines []byte) {
 
 func TypeRandomFunc(t string) string {
 	switch t {
+	case "time.Duration":
+		return "rando.Duration()"
 	case "time.Time":
-		return "rando.DateTime()"
+		return "rando.Time()"
 	case "struct{}":
 		return "struct{}{}"
 	case "[]byte":
