@@ -87,7 +87,7 @@ func Struct(name string, fieldsQty uint) (fields, testLines []byte) {
 	for i := 0; i < mx; i++ {
 		//b.WriteString(ExportedNames())
 		n := fieldNames.add(FieldName)
-		typ := Type()
+		typ := RandomType()
 		b.WriteString(n)
 		b.WriteString("\t")
 		b.WriteString(typ)
@@ -137,7 +137,7 @@ func TypeRandomFunc(t string) string {
 	return "rando." + strings.ToUpper(string(t[0])) + t[1:] + "()"
 }
 
-func Type() string {
+func RandomType() string {
 	supportedTypes := []string{
 		"bool",
 		"byte",
@@ -152,12 +152,15 @@ func Type() string {
 		"string",
 		"struct{}",
 		"time.Time",
+		"time.Duration",
 		"uint",
 		"uint8",
 		"uint16",
 		"uint32",
 		"uint64",
 		"[]byte",
+		"[]uint8",
+		"[]int8",
 	}
 	return supportedTypes[rand.Intn(len(supportedTypes))]
 }
