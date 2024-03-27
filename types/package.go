@@ -133,6 +133,8 @@ func TypeRandomFunc(t string) string {
 		return "rando.Int32s()"
 	case "[]int64":
 		return "rando.Int64s()"
+	case "[]bool":
+		return "rando.Bools()"
 	}
 	return "rando." + strings.ToUpper(string(t[0])) + t[1:] + "()"
 }
@@ -161,6 +163,7 @@ func RandomType() string {
 		"[]byte",
 		"[]uint8",
 		"[]int8",
+		"[]bool",
 	}
 	return supportedTypes[rand.Intn(len(supportedTypes))]
 }

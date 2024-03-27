@@ -13,3 +13,15 @@ func Bool() bool {
 func Bool10Percent() bool {
 	return rand.Intn(10) == 1
 }
+
+// Bools returns a random length []bool populated with random values.
+func Bools() (b []bool) {
+	if u := Uint8n(100); u != 0 {
+		b = make([]bool, u)
+		for i := range b {
+			b[i] = Bool()
+		}
+	}
+
+	return
+}
