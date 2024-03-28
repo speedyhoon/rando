@@ -5,7 +5,11 @@ import (
 	"time"
 )
 
-func Duration(min, max time.Duration) time.Duration {
+func Duration() time.Duration {
+	return time.Duration(Int64())
+}
+
+func DurationBetween(min, max time.Duration) time.Duration {
 	return time.Duration(rand.Intn(int(max-min))) + min
 }
 
