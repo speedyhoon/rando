@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"github.com/speedyhoon/numnam"
 	"strings"
 )
 
@@ -31,31 +32,7 @@ import (
 
 `)
 	structs := bytes.NewBuffer(nil)
-	typeNames := []string{
-		"One",
-		"Two",
-		"Three",
-		"Four",
-		"Five",
-		"Six",
-		"Seven",
-		"Eight",
-		"Nine",
-		"Ten",
-		"Eleven",
-		"Twelve",
-		"Thirteen",
-		"Fourteen",
-		"Fifteen",
-		"Sixteen",
-		"Seventeen",
-		"Eighteen",
-		"Nineteen",
-		"Twenty",
-		"TwentyOne",
-		"TwentyTwo",
-		"TwentyThree",
-	}
+	typeNames := NumberList(23)
 	for i, typeName := range typeNames {
 		structLines, testLines := StructSequence(typeName, uint(i+1), typ)
 		structs.Write(structLines)
@@ -95,34 +72,9 @@ func TestFuzz_%[3]d(t *testing.T) {
 func StructSequence(name string, qty uint, typ string) (fields, testLines []byte) {
 	b := bytes.NewBufferString(fmt.Sprintf("type %s struct{\n", name))
 	tl := bytes.NewBuffer(nil)
+	fieldNames := NumberList(qty)
 
-	fieldNames := []string{
-		"One",
-		"Two",
-		"Three",
-		"Four",
-		"Five",
-		"Six",
-		"Seven",
-		"Eight",
-		"Nine",
-		"Ten",
-		"Eleven",
-		"Twelve",
-		"Thirteen",
-		"Fourteen",
-		"Fifteen",
-		"Sixteen",
-		"Seventeen",
-		"Eighteen",
-		"Nineteen",
-		"Twenty",
-		"TwentyOne",
-		"TwentyTwo",
-		"TwentyThree",
-	}
-
-	for _, n := range fieldNames[:qty] {
+	for _, n := range fieldNames {
 		b.WriteString(n)
 		b.WriteString("\t")
 		b.WriteString(typ)
@@ -136,4 +88,12 @@ func StructSequence(name string, qty uint, typ string) (fields, testLines []byte
 	}
 	b.WriteString("}\n\n")
 	return b.Bytes(), tl.Bytes()
+}
+
+func NumberList(qty uint) (names []string) {
+	names = make([]string, qty)
+	for i := uint(0); i < qty; i++ {
+		names[i] = numnam.ToWordU(i + 1)
+	}
+	return
 }
