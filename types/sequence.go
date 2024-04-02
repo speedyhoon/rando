@@ -10,7 +10,7 @@ import (
 
 // PackageSequence generates a Go main package a random struct with the given field types.
 // It returns the package and test code required to test MarshalJ() & UnmarshalJ().
-func PackageSequence(name string, typ, generatedBy string) (pkg, test []byte, err error) {
+func PackageSequence(name, typ, generatedBy string) (pkg, test []byte, err error) {
 	generatedBy = strings.TrimSpace(generatedBy)
 	if generatedBy == "" {
 		generatedBy = "rando/types"
