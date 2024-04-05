@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"github.com/speedyhoon/rando"
+	"github.com/speedyhoon/utl"
 	"math/rand"
 	"strings"
 )
@@ -104,39 +106,46 @@ func Struct(name string, fieldsQty uint) (fields, testLines []byte) {
 }
 
 func TypeRandomFunc(t string) string {
+	var n interface{}
 	switch t {
 	case "time.Duration":
-		return "rando.Duration()"
+		n = rando.Duration
 	case "time.Time":
-		return "rando.Time()"
+		n = rando.Time
 	case "struct{}":
 		return "struct{}{}"
 	case "[]byte":
-		return "rando.Bytes()"
+		n = rando.Bytes
 	case "[]uint":
-		return "rando.Uints()"
+		n = rando.Uints
 	case "[]uint8":
-		return "rando.Uint8s()"
+		n = rando.Uint8s
 	case "[]uint16":
-		return "rando.Uint16s()"
+		n = rando.Uint16s
 	case "[]uint32":
-		return "rando.Uint32s()"
+		n = rando.Uint32s
 	case "[]uint64":
-		return "rando.Uint64s()"
+		n = rando.Uint64s
 	case "[]int":
-		return "rando.Ints()"
+		n = rando.Ints
 	case "[]int8":
-		return "rando.Int8s()"
+		n = rando.Int8s
 	case "[]int16":
-		return "rando.Int16s()"
+		n = rando.Int16s
 	case "[]int32":
-		return "rando.Int32s()"
+		n = rando.Int32s
 	case "[]int64":
-		return "rando.Int64s()"
+		n = rando.Int64s
 	case "[]bool":
-		return "rando.Bools()"
+		n = rando.Bools
+	case "[]float32":
+		n = rando.Float32s
+	case "[]float64":
+		n = rando.Float64s
+	default:
+		return "rando." + strings.Title(t) + "()"
 	}
-	return "rando." + strings.ToUpper(string(t[0])) + t[1:] + "()"
+	return utl.NameOfFunc(n) + "()"
 }
 
 func RandomType() string {
@@ -164,6 +173,8 @@ func RandomType() string {
 		"[]uint8",
 		"[]int8",
 		"[]bool",
+		"[]float32",
+		"[]float64",
 	}
 	return supportedTypes[rand.Intn(len(supportedTypes))]
 }
