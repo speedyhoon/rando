@@ -115,7 +115,7 @@ func TypeRandomFunc(t string) string {
 	case "struct{}":
 		return "struct{}{}"
 	case "[]byte":
-		n = rando.Bytes
+		n = rando.BytesNil
 	case "[]uint":
 		n = rando.Uints
 	case "[]uint8":
