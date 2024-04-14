@@ -2,6 +2,7 @@ package rando
 
 import (
 	"math/rand"
+	"time"
 )
 
 func Ints() (u []int) {
@@ -89,6 +90,23 @@ func Int64sN(qty int) (u []int64) {
 	u = make([]int64, qty)
 	for i := 0; i < qty; i++ {
 		u[i] = Int64()
+	}
+	return
+}
+
+func Durations() (u []time.Duration) {
+	l := rand.Intn(defaultMax) + 1
+	u = make([]time.Duration, l)
+	for i := 0; i < l; i++ {
+		u[i] = time.Duration(Int64())
+	}
+	return
+}
+
+func DurationsN(qty int) (u []time.Duration) {
+	u = make([]time.Duration, qty)
+	for i := 0; i < qty; i++ {
+		u[i] = time.Duration(Int64())
 	}
 	return
 }
