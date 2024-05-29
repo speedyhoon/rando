@@ -4,10 +4,10 @@ import (
 	"math/rand"
 )
 
-const defaultMax = 29
+var DefaultMax = 29
 
 func Uints() (u []uint) {
-	l := rand.Intn(defaultMax) + 1
+	l := rand.Intn(DefaultMax) + 1
 	u = make([]uint, l)
 	for i := 0; i < l; i++ {
 		if intSize == 32 {
@@ -28,7 +28,7 @@ func UintsN(qty int) (u []uint) {
 }
 
 func Uint8s() (u []uint8) {
-	l := rand.Intn(defaultMax) + 1
+	l := rand.Intn(DefaultMax) + 1
 	u = make([]uint8, l)
 	for i := 0; i < l; i++ {
 		u[i] = Uint8()
@@ -45,7 +45,7 @@ func Uint8sN(qty int) (u []uint8) {
 }
 
 func Uint16s() (u []uint16) {
-	l := rand.Intn(defaultMax) + 1
+	l := rand.Intn(DefaultMax) + 1
 	u = make([]uint16, l)
 	for i := 0; i < l; i++ {
 		u[i] = Uint16()
@@ -62,7 +62,7 @@ func Uint16sN(qty int) (u []uint16) {
 }
 
 func Uint32s() (u []uint32) {
-	l := rand.Intn(defaultMax) + 1
+	l := rand.Intn(DefaultMax) + 1
 	u = make([]uint32, l)
 	for i := 0; i < l; i++ {
 		u[i] = Uint32()
@@ -79,7 +79,7 @@ func Uint32sN(qty int) (u []uint32) {
 }
 
 func Uint64s() (u []uint64) {
-	l := rand.Intn(defaultMax) + 1
+	l := rand.Intn(DefaultMax) + 1
 	u = make([]uint64, l)
 	for i := 0; i < l; i++ {
 		u[i] = Uint64()
