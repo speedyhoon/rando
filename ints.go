@@ -7,6 +7,10 @@ import (
 
 func Ints() (u []int) {
 	l := rand.Intn(DefaultMax) + 1
+	if l == 0 {
+		return nil
+	}
+
 	u = make([]int, l)
 	for i := 0; i < l; i++ {
 		if intSize == 32 {
@@ -28,6 +32,10 @@ func IntsN(qty int) (u []int) {
 
 func Int8s() (u []int8) {
 	l := rand.Intn(DefaultMax) + 1
+	if l == 0 {
+		return nil
+	}
+
 	u = make([]int8, l)
 	for i := 0; i < l; i++ {
 		u[i] = Int8()
@@ -45,6 +53,10 @@ func Int8sN(qty int) (u []int8) {
 
 func Int16s() (u []int16) {
 	l := rand.Intn(DefaultMax) + 1
+	if l == 0 {
+		return nil
+	}
+
 	u = make([]int16, l)
 	for i := 0; i < l; i++ {
 		u[i] = Int16()
@@ -62,6 +74,10 @@ func Int16sN(qty int) (u []int16) {
 
 func Int32s() (u []int32) {
 	l := rand.Intn(DefaultMax) + 1
+	if l == 0 {
+		return nil
+	}
+
 	u = make([]int32, l)
 	for i := 0; i < l; i++ {
 		u[i] = Int32()
@@ -79,6 +95,10 @@ func Int32sN(qty int) (u []int32) {
 
 func Int64s() (u []int64) {
 	l := rand.Intn(DefaultMax) + 1
+	if l == 0 {
+		return nil
+	}
+
 	u = make([]int64, l)
 	for i := 0; i < l; i++ {
 		u[i] = Int64()
@@ -96,6 +116,10 @@ func Int64sN(qty int) (u []int64) {
 
 func Durations() (u []time.Duration) {
 	l := rand.Intn(DefaultMax) + 1
+	if l == 0 {
+		return nil
+	}
+
 	u = make([]time.Duration, l)
 	for i := 0; i < l; i++ {
 		u[i] = time.Duration(Int64())
