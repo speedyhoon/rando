@@ -5,17 +5,21 @@ import "math/rand"
 // BytesNil returns nil if the random length equals zero.
 func BytesNil() (b []byte) {
 	length := rand.Intn(100)
-	for i := 0; i < length; i++ {
-		b = append(b, Uint8())
+	if length >= 1 {
+		return BytesN(length)
 	}
 	return
 }
 
 // Bytes returns []byte{} if the random length equals zero.
 func Bytes() (b []byte) {
-	length := Uint8()
-	b = make([]byte, length)
-	for i := range b {
+	return BytesN(int(Uint8()))
+}
+
+// BytesN returns a fixed length slice filled with random bytes.
+func BytesN(qty int) (b []byte) {
+	b = make([]byte, qty)
+	for i := 0; i < qty; i++ {
 		b[i] = Uint8()
 	}
 	return
