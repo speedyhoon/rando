@@ -9,3 +9,9 @@ func C16() clr.C16 {
 	c := [size]clr.C16{0x0, 0x7, 0xF} // Options to randomly select color values from.
 	return c[Uint8n(size)]<<12 | c[Uint8n(size)]<<8 | c[Uint8n(size)]<<4 | 0xf
 }
+
+// C32 returns a random 24-bit color with 100% opacity.
+func C32() clr.C32 {
+	const MaxUint24 = 1<<24 - 1
+	return clr.C32(Uint32n(MaxUint24))<<8 | 0xff
+}
