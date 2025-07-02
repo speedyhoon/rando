@@ -122,7 +122,7 @@ func Durations() (u []time.Duration) {
 
 	u = make([]time.Duration, l)
 	for i := 0; i < l; i++ {
-		u[i] = time.Duration(Int64())
+		u[i] = Duration()
 	}
 	return
 }
@@ -130,7 +130,7 @@ func Durations() (u []time.Duration) {
 func DurationsN(qty int) (u []time.Duration) {
 	u = make([]time.Duration, qty)
 	for i := 0; i < qty; i++ {
-		u[i] = time.Duration(Int64())
+		u[i] = Duration()
 	}
 	return
 }

@@ -22,3 +22,16 @@ func Time() time.Time {
 func TimeNano() time.Time {
 	return time.Unix(0, Int64()).UTC()
 }
+
+func Times() (t []time.Time) {
+	l := rand.Intn(DefaultMax) + 1
+	if l == 0 {
+		return nil
+	}
+
+	t = make([]time.Time, l)
+	for i := 0; i < l; i++ {
+		t[i] = Time()
+	}
+	return
+}
