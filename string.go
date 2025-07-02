@@ -26,6 +26,10 @@ func Strings() (s []string) {
 
 // StringsQty returns a string slice with size `qty` with random length strings.
 func StringsQty(qty int) (s []string) {
+	if qty <= 0 {
+		return nil
+	}
+
 	s = make([]string, qty)
 	for i := 0; i < qty; i++ {
 		s[i] = String()
