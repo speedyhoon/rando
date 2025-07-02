@@ -50,16 +50,14 @@ func TestFuzz_%[3]d(t *testing.T) {
 	}
 	src := actual.MarshalJ()
 	require.NoError(t, expected.UnmarshalJ(src))
-	//require.NotEqual(t, %[1]s{}, expected)
-	//require.NotEqual(t, %[1]s{}, actual)
+	// require.NotEqual(t, %[1]s{}, expected)
+	// require.NotEqual(t, %[1]s{}, actual)
 	require.Equal(t, expected, actual)
 }
 `, typeName, testLines, i+1))
 	}
 
-	if bytes.Contains(structs.Bytes(), []byte("time.Time")) {
-		b.WriteString("import \"time\"\n\n")
-	}
+	addImport(b, typ)
 	b.Write(structs.Bytes())
 
 	pkg, err1 := goFormat(b.Bytes())
@@ -96,4 +94,13 @@ func NumberList(qty uint) (names []string) {
 		names[i] = numnam.ToWordU(i + 1)
 	}
 	return
+}
+
+// addImport appends an import declaration to the buffer if typ is from an external package.
+func addImport(b *bytes.Buffer, typ string) {
+	if strings.Contains(typ, ".") {
+		importPkg := strings.Split(typ, ".")[0]
+		importPkg = strings.Trim(importPkg, "[]{}")
+		b.WriteString(fmt.Sprintf("import \"%s\"\n\n", importPkg))
+	}
 }
