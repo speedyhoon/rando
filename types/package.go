@@ -110,12 +110,20 @@ func TypeRandomFunc(t string) string {
 	switch t {
 	case "time.Duration":
 		n = rando.Duration
+	case "[]time.Duration":
+		n = rando.Durations
 	case "time.Time":
 		n = rando.Time
+	case "[]time.Time":
+		n = rando.Times
 	case "struct{}":
 		return "struct{}{}"
 	case "[]byte":
 		n = rando.BytesNil
+	case "[]complex64":
+		n = rando.Complex64s
+	case "[]complex128":
+		n = rando.Complex128s
 	case "[]uint":
 		n = rando.Uints
 	case "[]uint8":
@@ -132,7 +140,7 @@ func TypeRandomFunc(t string) string {
 		n = rando.Int8s
 	case "[]int16":
 		n = rando.Int16s
-	case "[]int32":
+	case "[]int32", "[]rune":
 		n = rando.Int32s
 	case "[]int64":
 		n = rando.Int64s
@@ -142,16 +150,20 @@ func TypeRandomFunc(t string) string {
 		n = rando.Float32s
 	case "[]float64":
 		n = rando.Float64s
+	case "[]string":
+		n = rando.Strings
 	default:
 		return "rando." + strings.Title(t) + "()"
 	}
 	return utl.NameOfFunc(n) + "()"
 }
 
-func RandomType() string {
-	supportedTypes := []string{
+func SupportedList() []string {
+	return []string{
 		"bool",
 		"byte",
+		"complex64",
+		"complex128",
 		"float32",
 		"float64",
 		"int",
@@ -161,22 +173,39 @@ func RandomType() string {
 		"int64",
 		"rune",
 		"string",
-		"struct{}",
-		"time.Time",
 		"time.Duration",
+		"time.Time",
 		"uint",
 		"uint8",
 		"uint16",
 		"uint32",
 		"uint64",
-		"[]byte",
-		"[]uint8",
-		"[]int8",
 		"[]bool",
+		"[]byte",
+		"[]complex64",
+		"[]complex128",
 		"[]float32",
 		"[]float64",
+		"[]int",
+		"[]int8",
+		"[]int16",
+		"[]int32",
+		"[]int64",
+		"[]rune",
+		"[]string",
+		"[]time.Duration",
+		"[]time.Time",
+		"[]uint",
+		"[]uint8",
+		"[]uint16",
+		"[]uint32",
+		"[]uint64",
 	}
-	return supportedTypes[rand.Intn(len(supportedTypes))]
+}
+
+func RandomType() string {
+	list := SupportedList()
+	return list[rand.Intn(len(list))]
 }
 
 func ExportedNames() string {
