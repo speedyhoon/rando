@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// Duration returns a random time.Duration value.
 func Duration() time.Duration {
 	return time.Duration(Int64())
 }
@@ -23,6 +24,7 @@ func TimeNano() time.Time {
 	return time.Unix(0, Int64()).UTC()
 }
 
+// Times returns a random size slice of random time.Time values.
 func Times() (t []time.Time) {
 	l := rand.Intn(DefaultMax) + 1
 	if l == 0 {
@@ -31,6 +33,15 @@ func Times() (t []time.Time) {
 
 	t = make([]time.Time, l)
 	for i := 0; i < l; i++ {
+		t[i] = Time()
+	}
+	return
+}
+
+// TimesN returns a slice of random time.Time values with the size `qty`.
+func TimesN(qty int) (t []time.Time) {
+	t = make([]time.Time, qty)
+	for i := 0; i < qty; i++ {
 		t[i] = Time()
 	}
 	return
