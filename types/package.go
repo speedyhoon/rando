@@ -36,16 +36,16 @@ import (
 		tests.WriteString(fmt.Sprintf(`
 func TestFuzz_%d(t *testing.T) {
 	var expected, actual %s
-	require.NoError(t, expected.UnmarshalJ(actual.MarshalJ()))
+	require.NoError(t, actual.UnmarshalJ(expected.MarshalJ()))
 	require.Equal(t, expected, actual)
 	require.Equal(t, %[2]s{}, expected)
 	require.Equal(t, %[2]s{}, actual)
 
-	actual = %[2]s{
+	expected = %[2]s{
 		%[3]s
 	}
-	src := actual.MarshalJ()
-	require.NoError(t, expected.UnmarshalJ(src))
+	src := expected.MarshalJ()
+	require.NoError(t, actual.UnmarshalJ(src))
 	require.NotEqual(t, %[2]s{}, expected)
 	require.NotEqual(t, %[2]s{}, actual)
 	require.Equal(t, expected, actual)
@@ -75,7 +75,7 @@ func (u uniqueNames) add(f func() string) string {
 			return tmp
 		}
 	}
-	panic("function f does no generate enough randomness")
+	panic("function `f` does not generate enough randomness")
 }
 
 // Struct generates a random struct with a random number of fields.

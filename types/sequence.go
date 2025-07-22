@@ -40,16 +40,16 @@ import (
 		tests.WriteString(fmt.Sprintf(`
 func TestFuzz_%[3]d(t *testing.T) {
 	var expected, actual %[1]s
-	require.NoError(t, expected.UnmarshalJ(actual.MarshalJ()))
+	require.NoError(t, actual.UnmarshalJ(expected.MarshalJ()))
 	require.Equal(t, expected, actual)
 	require.Equal(t, %[1]s{}, expected)
 	require.Equal(t, %[1]s{}, actual)
 
-	actual = %[1]s{
+	expected = %[1]s{
 		%[2]s
 	}
-	src := actual.MarshalJ()
-	require.NoError(t, expected.UnmarshalJ(src))
+	src := expected.MarshalJ()
+	require.NoError(t, actual.UnmarshalJ(src))
 	// require.NotEqual(t, %[1]s{}, expected)
 	// require.NotEqual(t, %[1]s{}, actual)
 	require.Equal(t, expected, actual)
