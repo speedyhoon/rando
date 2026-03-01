@@ -14,8 +14,8 @@ github.com/rogpeppe/go-internal v1.14.1 h1:UQB4HGPB6osV0SQTLymcB4TgvyWu6ZyliaW0t
 github.com/rogpeppe/go-internal v1.14.1/go.mod h1:MaRKkUm5W0goXpeCfT7UZI6fk/L7L7so1lCWt35ZSgc=
 github.com/speedyhoon/numnam v0.0.0-20260203072053-447015b4d8d5 h1:xclgmHwYXC4vuJWafF+R2FWl3ZQJUEVFKMyb82EYg+o=
 github.com/speedyhoon/numnam v0.0.0-20260203072053-447015b4d8d5/go.mod h1:yStEt6i5jVB9vGyLrY8MTVIERIBL3jF6xxqCGKjnHaE=
-github.com/speedyhoon/rando v0.0.0-20250826125132-5de86dea1613 h1:Ng5TgavUlO9T79+6GVmdMEQHriPnSqF4x3nNhyrqlMs=
-github.com/speedyhoon/rando v0.0.0-20250826125132-5de86dea1613/go.mod h1:sHdRSSPCTOC5RmHN5zCsTrQdWtj5ISVaJf4Xwjw8mWs=
+github.com/speedyhoon/rando v0.0.0-20260220235903-c3a636a73e01 h1:kBo6xoo6RbJuEVmuu6Z7DyQSwfDu5gRmgRgyuD5yF6A=
+github.com/speedyhoon/rando v0.0.0-20260220235903-c3a636a73e01/go.mod h1:sHdRSSPCTOC5RmHN5zCsTrQdWtj5ISVaJf4Xwjw8mWs=
 github.com/speedyhoon/utl v0.0.0-20250911020201-cba0f7bd8705 h1:ioFWOc96v7kIARS/zlOmlnhOHZVV1AH4AOf9fIqQYhc=
 github.com/speedyhoon/utl v0.0.0-20250911020201-cba0f7bd8705/go.mod h1:wfbkfK278UxeIC0hmDMExrrBoBSNbFOFjUpmqJ9v/og=
 github.com/speedyhoon/utl/tf v0.0.0-20241219003927-c59b3c3a2c12 h1:W75p9QsLijTr539wiPLSL2Grqy3Yh5ka91uQ0XttvPs=
