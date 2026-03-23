@@ -4,8 +4,9 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/speedyhoon/numnam"
 	"strings"
+
+	"github.com/speedyhoon/numnam"
 )
 
 // PackageSequence generates a Go main package a random struct with the given field types.
@@ -25,9 +26,10 @@ package %s
 	tests.WriteString(`
 
 import (
-	"github.com/speedyhoon/rando"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/go-openapi/testify/v2/require"
+	"github.com/speedyhoon/rando"
 )
 
 `)

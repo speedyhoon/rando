@@ -16,9 +16,10 @@ func PackageTypes(name string, types []string) (pkg, test []byte, err error) {
 	tests.WriteString(`
 
 import (
-	"github.com/speedyhoon/rando"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/go-openapi/testify/v2/require"
+	"github.com/speedyhoon/rando"
 )
 
 `)
@@ -65,7 +66,7 @@ func StructType(name string, types []string) (fields, testLines []byte) {
 	fieldNames := make(uniqueNames)
 
 	for _, typ := range types {
-		//b.WriteString(ExportedNames())
+		// b.WriteString(ExportedNames())
 		n := fieldNames.add(FieldName)
 		b.WriteString(n)
 		b.WriteString("\t")

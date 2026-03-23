@@ -1,4 +1,5 @@
 # rando
+
 [![Go Reference](https://pkg.go.dev/badge/github.com/speedyhoon/rando.svg)](https://pkg.go.dev/github.com/speedyhoon/rando)
 [![Go Report Card](https://goreportcard.com/badge/github.com/speedyhoon/rando)](https://goreportcard.com/report/github.com/speedyhoon/rando)
 

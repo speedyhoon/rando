@@ -1,8 +1,9 @@
 package types
 
 import (
-	"mvdan.cc/gofumpt/format"
 	"runtime"
+
+	"mvdan.cc/gofumpt/format"
 )
 
 // goFormat nicely formats the generated Go code.

@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/speedyhoon/rando"
-	"github.com/speedyhoon/utl"
 	"math/rand"
 	"strings"
+
+	"github.com/speedyhoon/rando"
+	"github.com/speedyhoon/utl"
 )
 
 // Package generates a Go main package with 1 to 6 randomly generated structs.
@@ -20,9 +21,10 @@ func Package(name string) (pkg, test []byte, err error) {
 	tests.WriteString(`
 
 import (
-	"github.com/speedyhoon/rando"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/go-openapi/testify/v2/require"
+	"github.com/speedyhoon/rando"
 )
 
 `)
@@ -87,7 +89,7 @@ func Struct(name string, fieldsQty uint) (fields, testLines []byte) {
 
 	mx := rand.Intn(int(fieldsQty)) + 1
 	for i := 0; i < mx; i++ {
-		//b.WriteString(ExportedNames())
+		// b.WriteString(ExportedNames())
 		n := fieldNames.add(FieldName)
 		typ := RandomType()
 		b.WriteString(n)
