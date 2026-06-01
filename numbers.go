@@ -89,8 +89,8 @@ func Uint32() uint32 {
 }
 
 // Uint32n returns a random uint32  ranging between 0 to n.
-func Uint32n(n int) uint32 {
-	return uint32(rand.Intn(min(n, math.MaxUint32)))
+func Uint32n(n uint32) uint32 {
+	return uint32(rand.Int63n(int64(n)))
 }
 
 // Uint64 returns a random uint64.
