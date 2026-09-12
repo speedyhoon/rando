@@ -1,8 +1,6 @@
 package rando
 
-import (
-	"math/rand"
-)
+import "math/rand"
 
 // Bool returns a random boolean.
 func Bool() bool {
@@ -16,11 +14,11 @@ func Bool10Percent() bool {
 
 // Bools returns a random length []bool populated with random values.
 func Bools() (b []bool) {
-	return BoolsN(Uint8n(100))
+	return BoolsN(Uint32n(100))
 }
 
 // BoolsN returns a []bool with length `size`, populated with random values.
-func BoolsN(size uint8) (b []bool) {
+func BoolsN(size uint32) (b []bool) {
 	if size >= 1 {
 		b = make([]bool, size)
 		for i := range b {
